@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="a2e56077-469c-4077-82c4-b3c75da5a08f" >
+		<http:listener-connection host="0.0.0.0" port="8085" />
+	</http:listener-config>
 	<flow name="firstmule-4-projectFlow" doc:id="6d7ea07b-572f-42c7-9a22-386d84e4ca4f" >
-		<scheduler doc:name="Scheduler" doc:id="724b1692-bdba-4fa6-b7b3-ef8b8dcf77ef" >
-			<scheduling-strategy >
-				<fixed-frequency timeUnit="HOURS"/>
-			</scheduling-strategy>
-		</scheduler>
+		<http:listener doc:name="Listener" doc:id="9d8ff60b-d274-4c4c-a936-9c6ff5be431a" config-ref="HTTP_Listener_config" path="/"/>
 		<set-payload value='#["Welcome to Mule-4"]' doc:name="Set Payload" doc:id="ad49bbe8-5938-4423-9078-8ce68098f959" />
 		<logger level="INFO" doc:name="Logger" doc:id="98a013e1-0531-4bee-9b29-d9dae93f680e" message="inside mule 4"/>
 	</flow>
