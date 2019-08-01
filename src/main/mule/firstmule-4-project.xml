@@ -10,6 +10,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="firstmule-4-projectFlow" doc:id="6d7ea07b-572f-42c7-9a22-386d84e4ca4f" >
 		<http:listener doc:name="Listener" doc:id="9d8ff60b-d274-4c4c-a936-9c6ff5be431a" config-ref="HTTP_Listener_config" path="/"/>
 		<set-payload value='#["Welcome to Mule-4"]' doc:name="Set Payload" doc:id="ad49bbe8-5938-4423-9078-8ce68098f959" />
-		<logger level="INFO" doc:name="Logger" doc:id="98a013e1-0531-4bee-9b29-d9dae93f680e" message="inside mule 4"/>
+		<logger level="INFO" doc:name="Logger" doc:id="98a013e1-0531-4bee-9b29-d9dae93f680e" message="inside mule 4---testing mvn release"/>
 	</flow>
 </mule>
