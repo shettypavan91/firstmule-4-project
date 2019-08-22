@@ -1,19 +1,18 @@
 pipeline{
 	agent any
+	tools{
+		maven 'MAVEN_LATEST''
+	}
 
 	stages{
 		stage('Compile Stage'){
 			steps{
-				withMaven(maven : 'MAVEN_LATEST'){
-					sh 'mvn clean compile'
-				}		
+				sh 'mvn clean compile'		
 			}
 		}
 		stage('Testing Stage'){
 			steps{
-				withMaven(maven : 'MAVEN_LATEST'){
-					sh 'mvn test'
-				}		
+				sh 'mvn test'		
 			}
 		}
 	}
